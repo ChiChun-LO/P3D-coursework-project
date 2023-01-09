@@ -4,46 +4,44 @@ using UnityEngine;
 
 public class ControlDoor : MonoBehaviour
 {
-    [SerializeField] private Animator myDoor = null;
+    [SerializeField] private Animator myLeftDoor = null;
+    [SerializeField] private Animator myRightDoor = null;
     [SerializeField] private string playerTag;
     [SerializeField] private bool open = false;
     [SerializeField] private bool close = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("A");
-        if(Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("E");
-            }
+        
         if(other.tag == "Player")
         {
-Debug.Log("B");
-        if(/*(Input.GetKeyDown(KeyCode.E)) &&*/ open)
+
+        if(/*Input.GetMouseButtonUp(0) &&*/ open)
         {
-            Debug.Log("C");
-            //myDoor.Play("OpenDoor", 0, 0.0f);
-            //gameObject.SetActive(false);
+            myLeftDoor.Play("OpenDoor", 0, 0.0f);
+            myRightDoor.Play("OpenDoor 1", 0, 0.0f);
+            gameObject.SetActive(false);
             
         }
 
-        else if(/*(Input.GetKeyDown(KeyCode.E)) &&*/ close)
+        else if(/*Input.GetMouseButtonUp(0) &&*/ close)
         {
-            myDoor.Play("CloseDoor", 0, 0.0f);
+            myLeftDoor.Play("CloseDoor", 0, 0.0f);
+            myRightDoor.Play("CloseDoor 1", 0, 0.0f);
             gameObject.SetActive(false);
         }
         }
     }
 
 
-    void Update()
+    /*void Update()d
     {
         if(Input.GetMouseButtonUp(0))
         {
             Debug.Log("E");
         }
-    }
-    }
+    }*/
+}
     /*private void OnTriggerExit(Collider other)
     {
         //Debug.Log("Exiting here");
