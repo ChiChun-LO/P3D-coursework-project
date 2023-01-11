@@ -71,9 +71,11 @@ public class Pick : MonoBehaviour
     public void ThrowObject()
     {
         heldObjRB.useGravity = true;
+        heldObjRB.velocity = holdArea.forward * 10;
         heldObjRB.drag = 1;
+        
         heldObjRB.constraints = RigidbodyConstraints.None;
-
+        heldObjRB.velocity = holdArea.forward * 10;
         heldObjRB.transform.parent = null;
         heldObj = null;
     }
