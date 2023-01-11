@@ -6,7 +6,7 @@ public class OpenandClose : MonoBehaviour
 {
     RaycastHit hit;
 
-    private bool isOpen = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,19 +25,16 @@ public class OpenandClose : MonoBehaviour
             {
                 Debug.Log(hit.collider.gameObject.name);
                 
-                if (isOpen.Equals(false) && hit.collider.gameObject.name.Equals("Door"))
+                if (hit.collider.gameObject.name.Equals("Cube"))
                 {
-                    transform.rotation = Quaternion.Euler(0.0f, 0f, 0.0f);
-                    transform.position = new Vector3(0.73f, 1.5f, 2.06f);
-                    isOpen = true;
-                }
-                else if (hit.collider.gameObject.name.Equals("Door") && isOpen.Equals(true))
-                {
-                    transform.rotation = Quaternion.Euler(0.0f, 90f, 0.0f);
-                    transform.position = new Vector3(1.43f, 1.5f, 1.33f);
-                    isOpen = false;
+                    gameObject.SetActive(false);
                 }
             }
+        }
+        if (Input.GetMouseButtonUp(1))
+             
+        {
+            gameObject.name.Equals("Cube").SetActive(true);
         }
     }
 }
