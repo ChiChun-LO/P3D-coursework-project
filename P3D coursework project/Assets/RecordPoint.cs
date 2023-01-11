@@ -5,7 +5,7 @@ using UnityEngine;
 public class RecordPoint : MonoBehaviour
 {
     [SerializeField] private string playerTag;
-    
+
     private static Vector3 playerRecordPoint;
 
     private void OnTriggerEnter(Collider other)

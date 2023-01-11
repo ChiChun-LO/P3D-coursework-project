@@ -10,7 +10,8 @@ public class Transback : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            GameObject.FindGameObjectWithTag("Player").transform.position = RecordPoint.Get_playerRecordPoint();
+            Debug.Log(GameObject.FindWithTag("Player").transform.position);
+            GameObject.FindWithTag("Player").transform.position = RecordPoint.Get_playerRecordPoint();
         }
     }
     
